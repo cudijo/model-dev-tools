@@ -1,0 +1,73 @@
+[tool.poetry]
+name = "model-dev-tools"
+version = "0.1.0"
+description = ""
+authors = ["Regrow Ag <support@regrow.ag>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+aiomysql = "*"
+dash = "<2.9.0"
+dash-bootstrap-components = "*"
+fastapi = "==0.92.0"
+gcloud-aio-storage = "*"
+geopandas = "*"
+rasterio = "*"
+google-cloud-storage = "*"
+earthengine-api = "*"
+gunicorn = "*"
+httptools = "*"
+httpx = ">=0.23.0"
+json2html = "*"
+mysql-connector-python = "*"
+numpy = "*"
+nest-asyncio = "*"
+pandas = "==1.5.3"
+plotly = "*"
+seaborn = "*"
+pymysql = "*"
+python-dotenv = "*"
+python-dateutil = "*"
+python-json-logger = "*"
+redis = ">=4.4.4"
+requests = "*"
+requests-cache = "*"
+shapely = "==2.0rc1"
+sentry-sdk = {extras = ["fastapi"], version = "*"}
+slack-sdk = "*"
+sortedcontainers = "*"
+sqlalchemy = "*"
+starlette = "==0.25.0"
+tenacity = "*"
+uvicorn = "*"
+hobs-service-client = {subdirectory = "hobs_service_client", git = "git+ssh://git@github.com/regrowag/hobs-service.git"}
+scenarios-service-client = {subdirectory = "scenarios_service_client", git = "git+ssh://git@github.com/regrowag/dndc-scenarios-service.git"}
+scenarios-service-schema = {subdirectory = "scenarios_service_schema", git = "git+ssh://git@github.com/regrowag/dndc-scenarios-service.git"}
+scenarios-service-smart-defaulting = {subdirectory = "scenarios_service_smart_defaulting", git = "git+ssh://git@github.com/regrowag/dndc-scenarios-service.git"}
+google-cloud-bigquery = "^3.11.0"
+ipykernel = "*"
+jupyterlab = ">=3"
+jupyter-dash = "*"
+environmental-clusters = {git = "git+ssh://git@github.com/regrowag/environmental-clusters.git"}
+dndc-eval = {git = "git+ssh://git@github.com/cudijo/dndc_eval.git"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+target-version = ['py39']
+exclude = ["example_*", ".venv"]
+extend-exclude = """
+^/src/*
+"""
+
+[tool.isort]
+profile = "black"
+known_first_party = ["ofs_client", "scenarios_service_client", "scenarios_service_schema", "scenarios_service_smart_defaulting"]
+known_local_folder = ["app"]
+line_length = 120
+py_version = 39
+skip_glob = ["src/*"]
